@@ -4,6 +4,11 @@ namespace App\Controller;
 
 abstract class AbstractController
 {
+    public function __construct()
+    {
+        session_start();
+    }
+
     public function render(string $viewName, array $data = []): void
     {
         require_once($_SERVER['DOCUMENT_ROOT'] . '/' . '/view/' . $viewName);
