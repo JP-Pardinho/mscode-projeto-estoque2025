@@ -11,3 +11,39 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="../assets/css/styles.css" rel="stylesheet">
 </head>
+
+<body>
+  <main>
+    <div class="border-bottom mb-2">
+      <div class="container">
+        <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
+          <a href="/tela-inicial" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img class="me-2" src="../assets/images/logotipo.svg" width="53">
+            <span class="fs-4">MS Code - Estoque</span>
+          </a>
+
+          <ul class="nav nav-pills d-flex align-items-center">
+            <li class="nav-item"><a href="/tela-inicial" class="nav-link active" aria-current="page">Início</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Vendas
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/vendas-realizadas">Vendas realizadas</a></li>
+                <li><a class="dropdown-item" href="/nova-venda">Nova venda</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Produtos
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/tela-produtos">Estoque</a></li>
+                <li><a class="dropdown-item" href="/tela-categorias">Categorias</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="/logout" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
+          </ul>
+        </header>
+      </div>
+    </div>

@@ -38,7 +38,7 @@ class Usuario
 
     public function update(int $id, array $data): bool
     {   
-        $senhaHash = password_hash($data['senha'], PASSWORD_ARGON2ID);
+        $senhaHash = password_hash($data['senha'], PASSWORD_DEFAULT);
 
         return $this->query->update('usuario', [
             'nome' => $data['nome'],
@@ -56,4 +56,15 @@ class Usuario
     {
         return $this->query->select('usuario', null) ?: [];
     }
+
+   public function findByEmail(string $email): ?array
+    {
+        $result = $this->query->select('usuario', "email = '{$email}'");
+
+        if ($result && count($result) > 0) {
+            return $result[0];
+        }
+
+        return null;
+    }    
 }

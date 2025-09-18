@@ -4,6 +4,7 @@ namespace App\Controller\Produto;
 
 use App\Controller\AbstractController;
 use App\Model\Produto;
+use DateTime;
 
 class SalvarProdutoController extends AbstractController
 {
@@ -13,17 +14,17 @@ class SalvarProdutoController extends AbstractController
             $this->redirectToError("Método não permitido");
         }
 
-        if (empty($requestData['title'])) {
-            $this->redirectToError("Título é obrigatório");
+        if (empty($requestData['nome'])) {
+            $this->redirectToError("Nome é obrigatório");
         }
 
         $data = [
             'nome' => trim($requestData['nome']),
             'descricao' => trim($requestData['descricao'] ?? ''),
             'categoria_id' => trim($requestData['categoria_id']),
-            'data_cadastro' => trim($requestData['data_cadastro']),
-            'quantidade_inicial' => trim($requestData['quantidade_inicial']),
-            'quantidade_disponivel' => trim($requestData['quantidade_disponivel']),
+            'data_cadastro' => date(DATE_ATOM),
+            'quantidade_inicial' => trim($requestData['quantidade']),
+            'quantidade_disponivel' => trim($requestData['quantidade']),
             'valor' => trim($requestData['valor'])
         ];
 
@@ -35,7 +36,7 @@ class SalvarProdutoController extends AbstractController
         }
 
         if ($success) {
-            $this->redirect('/');
+            $this->redirect('/tela-inicial');
         } else {
             $this->redirectToError("Erro ao salvar item");
         }

@@ -1,8 +1,21 @@
-<?php require_once './includes/header_login.php'; ?>
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MS Code - Estoque 5</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="../assets/css/styles.css" rel="stylesheet">
+  <link href="../assets/css/login.css" rel="stylesheet">
+</head>
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
   <main class="form-signin w-100 m-auto">
-    <form action="" method="POST">
+    <form action="/login" method="POST">
       <div class="d-flex align-items-center mb-4">
         <img class="p-0" src="../assets/images/logotipo.svg" width="72" height="57">
 
@@ -14,7 +27,7 @@
         <label for="email">Email</label>
       </div>
       <div class="form-floating">
-        <input type="password" name="password" class="form-control" id="senha" placeholder="Password">
+        <input type="password" name="senha" class="form-control" id="senha" placeholder="Password">
         <label for="senha">Senha</label>
       </div>
 
@@ -22,9 +35,5 @@
       <p class="mt-5 mb-3 text-body-secondary text-center">&copy; MS Code 2025</p>
     </form>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+  
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/footer.php'; ?>
