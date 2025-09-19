@@ -59,16 +59,4 @@ class Produto
     {
         return $this->query->select('produto', null) ?: [];
     }
-
-    public function findNomeCaregoria(int $id): ?array 
-    {
-        $categoria = new Categoria();
-        $result = $this->query->select('categoria', 'id = ' . $id);
-
-        if ($result && count($result) > 0) {
-            return $result[0];
-        }
-
-        return null;
-    }
 }

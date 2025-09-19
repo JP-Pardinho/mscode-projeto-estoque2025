@@ -17,7 +17,6 @@
             </tr>
         </thead>
         <tbody>
-
             <?php foreach ($data['categorias'] as $categoria): ?>
                 <tr>
                     <th scope="row"><?php echo $categoria['id']; ?></th>
@@ -39,25 +38,13 @@
                     </td>
                 </tr>
             <?php endforeach; ?>
-
-            <tr>
-                <th scope="row">1</th>
-                <td>Informática</td>
-                <td class="col-1 text-align-right">
-                    <button class="btn btn-secondary btn-sm" title="Editar"><i class="bi bi-pencil"></i></button>
-                    <button class="btn btn-danger btn-sm" title="Excluir"><i class="bi bi-trash"></i></button>
-                </td>
-            </tr>
-
-        </tbody>
-
     </table>
 </div>
 </main>
 
 <script>
-    function EditarCategoria(categoriaId) {
-        window.location.href = `/categoria/editarCategoria?id=${categoriaId}`;
+    function editarCategoria(categoriaId) {
+        window.location.href = `/tela-editar-categoria?id=${categoriaId}`;
     }
 
     function removerCategoria(categoriaId) {

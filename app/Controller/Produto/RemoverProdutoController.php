@@ -17,7 +17,7 @@ class RemoverProdutoController extends AbstractController
         $success = $produtoModel->delete((int)$requestData['id']);
 
         if ($success) {
-            $this->redirect('/');
+            $this->redirect('/tela-produtos');
         } else {
             $this->redirectToError("Erro ao remover item");
         }

@@ -36,7 +36,7 @@ class SalvarProdutoController extends AbstractController
         }
 
         if ($success) {
-            $this->redirect('/tela-inicial');
+            $this->redirect('/tela-produtos');
         } else {
             $this->redirectToError("Erro ao salvar item");
         }

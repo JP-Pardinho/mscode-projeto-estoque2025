@@ -49,4 +49,16 @@ class Categoria
         return $this->query->select('categoria', null) ?: [];
     }
 
+    // PERGUNTAR SOBRE ISSO MAIS TARDE
+    public function findNamebyId(int $id): ?string
+    {
+        $result = $this->query->select('categoria', 'id = ' . $id);
+
+        if ($result && count($result) > 0) {
+            $categoria = $result[0];
+            return $categoria['nome'];
+        }
+
+        return null;
+    }
 }
