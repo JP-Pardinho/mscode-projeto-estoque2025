@@ -27,6 +27,10 @@ class VenderProdutoController extends AbstractController
             'valor' => $success['valor']
         ];
 
+        if ($quantidade < 0){
+            $this->redirectToError("Sem estoque disponivel");
+        }
+
         $success = $produtoModel->update((int) $requestData['id'], $data);
 
         if ($success) {

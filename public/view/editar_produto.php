@@ -40,7 +40,7 @@
 
                 <div class="mb-3 col-4">
                     <label for="quantidade" class="form-label">Quantidade:</label>
-                    <input type="number" class="form-control" id="quantidade" name="quantidade" value="<?php echo $data['produto']['quantidade'] ?>">
+                    <input type="number" class="form-control" id="quantidade" name="quantidade" value="<?php echo (int) $data['produto']['quantidade_disponivel'] ?>">
                 </div>
 
                 <div class="mb-3 col-4">
