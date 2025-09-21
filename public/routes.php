@@ -33,7 +33,7 @@ use App\Controller\Painel\NovoProdutoController as NovoProduto;
 use App\Controller\Painel\TelaEditarProdutoController as TelaEditarProduto;
 
 // TELA INICIAL
-use App\Controller\Painel\IndexController as Index;
+use App\Controller\Painel\TelaLoginController as TelaLogin;
 
 $router = [
     'routes' => [
@@ -48,7 +48,7 @@ $router = [
         '/produto/venderProduto' => VenderProduto::class,
         '/login' => Login::class,
         '/logout' => Logout::class,
-        '/tela-inicial' => Index::class,
+        '/tela-login' => TelaLogin::class,
         '/tela-produtos' => Produto::class,
         '/novo-produto' => NovoProduto::class,
         '/tela-categorias' => Categorias::class,

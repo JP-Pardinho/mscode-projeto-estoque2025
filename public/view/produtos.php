@@ -2,6 +2,19 @@
 
  require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/header.php'; ?>
 
+ <?php 
+
+session_start(); 
+
+
+if ($_SESSION['usuario_logado'] != 1){
+
+    header('Location: /error?mensagem=Por favor, faça login para acessar essa página.');
+    exit();
+}
+
+?>
+
 <div class="container py-5">
     <div class="mb-4 d-flex flex-row justify-content-between">
         <h1>Produtos</h1>
@@ -65,7 +78,6 @@
                 </tr>
             <?php endforeach; ?>
         </tbody>
-
     </table>
 </div>
 </main>

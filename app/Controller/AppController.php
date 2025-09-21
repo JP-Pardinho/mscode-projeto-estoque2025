@@ -6,6 +6,6 @@ class AppController extends AbstractController
 {
     public function index(array $requestData): void
     {
-        $this->render('login.php');
+        $this->render('index.php');
     }
 }

@@ -1,5 +1,18 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/header.php'; ?>
 
+<?php 
+
+session_start(); 
+
+
+if ($_SESSION['usuario_logado'] != 1){
+
+    header('Location: /error?mensagem=Por favor, faça login para acessar essa página.');
+    exit();
+}
+
+?>
+
 <div class="container py-5">
     <div class="mb-4 d-flex flex-row justify-content-between">
         <h1>Categorias</h1>
@@ -23,16 +36,16 @@
                     <td><?php echo $categoria['nome'] ?></td>
                     <td class="col-1 text-align-right">
                         <button type="button"
-                                class="btn btn-secondary btn-sm"
-                                title="Editar"
-                                onclick="editarCategoria(<?php echo $categoria['id']; ?>)">
+                            class="btn btn-secondary btn-sm"
+                            title="Editar"
+                            onclick="editarCategoria(<?php echo $categoria['id']; ?>)">
                             <i class="bi bi-pencil"></i>
                         </button>
 
                         <button type="button"
-                                class="btn btn-danger btn-sm"
-                                title="Excluir" 
-                                onclick="removerCategoria(<?php echo $categoria['id']; ?>)">
+                            class="btn btn-danger btn-sm"
+                            title="Excluir"
+                            onclick="removerCategoria(<?php echo $categoria['id']; ?>)">
                             <i class="bi bi-trash"></i>
                         </button>
                     </td>

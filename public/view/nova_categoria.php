@@ -1,5 +1,18 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/header.php'; ?>
 
+<?php 
+
+session_start(); 
+
+
+if ($_SESSION['usuario_logado'] != 1){
+
+    header('Location: /error?mensagem=Por favor, faça login para acessar essa página.');
+    exit();
+}
+
+?>
+
     <div class="container py-5">
       <div class="mb-4">
         <h1>Nova categoria</h1>

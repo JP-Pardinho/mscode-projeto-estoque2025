@@ -26,6 +26,6 @@ class LoginController extends AbstractController
 
         $_SESSION['usuario_logado'] = 1;
 
-        $this->redirect('/tela-inicial');
+        $this->redirect('/');
     }
 }
