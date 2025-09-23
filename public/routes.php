@@ -18,7 +18,10 @@ use App\Controller\Categoria\SalvarCategoriaController as SalvarCategoria;
 use App\Controller\Categoria\RemoverCategoriaController as RemoverCategoria;
 use App\Controller\Categoria\EditarCategoriaController as EditarCategoria;
 
-// VALIDAÇÃO USUARIO
+// CRUD USUARIOS
+use App\Controller\Usuario\SalvarUsuarioController as SalvarUsuario;
+
+// Login e Logout
 use App\Controller\LoginController as Login;
 use App\Controller\LogoutController as Logout;
 
@@ -32,29 +35,41 @@ use App\Controller\Painel\ProdutosController as Produto;
 use App\Controller\Painel\NovoProdutoController as NovoProduto;
 use App\Controller\Painel\TelaEditarProdutoController as TelaEditarProduto;
 
-// TELA INICIAL
+
+// TELAS: USUARIO
 use App\Controller\Painel\TelaLoginController as TelaLogin;
+use App\Controller\Painel\NovoUsuarioController as TelaCadastro;
+use App\Controller\Painel\PerfilUsuarioController as TelaPerfil;
 
 $router = [
     'routes' => [
         '/' => AppController::class,
+
         '/categoria/salvarCategoria' => SalvarCategoria::class,
         '/categoria/removerCategoria' => RemoverCategoria::class,
         '/categoria/editarCategoria' => EditarCategoria::class,
+        
         '/produto/salvarProduto' => SalvarProduto::class,
         '/produto/removerProduto' => RemoverProduto::class,
         '/produto/editarProduto' => EditarProduto::class,
         '/produto/incrementarProduto' => IncrementarProduto::class,
         '/produto/venderProduto' => VenderProduto::class,
+        
+        '/usuario/salvarUsuario' => SalvarUsuario::class,
+        
         '/login' => Login::class,
         '/logout' => Logout::class,
-        '/tela-login' => TelaLogin::class,
-        '/tela-produtos' => Produto::class,
-        '/novo-produto' => NovoProduto::class,
-        '/tela-categorias' => Categorias::class,
+        
         '/nova-categoria' => NovaCategoria::class,
+        '/novo-produto' => NovoProduto::class,
+        '/tela-login' => TelaLogin::class,
+        '/tela-perfil' => TelaPerfil::class,
+        '/tela-cadastro' => TelaCadastro::class,
+        '/tela-produtos' => Produto::class,
+        '/tela-categorias' => Categorias::class,
         '/tela-editar-categoria' => TelaEditarCategoria::class,
         '/tela-editar-produto' => TelaEditarProduto::class,
+
         '/error' => ErrorController::class,
     ],
     'default' => NotFoundController::class

@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <!doctype html>
 <html lang="pt-BR">
 
@@ -44,15 +42,27 @@
                                 <li><a class="dropdown-item" href="/tela-categorias">Categorias</a></li>
                             </ul>
                         </li>
-                        <?php if ($_SESSION['usuario_logado'] == 1): ?>
-                            <li class="nav-item"><a href="/logout" class="btn btn-outline-danger m-0 ms-4" aria-current="page">Sair</a></li>
+                        <?php if (isset($_SESSION['usuario_logado'])): ?>
+                            <li class="nav-item dropdown">
+                                <a id="login-dropdown" class="nav-link dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-3 me-2"></i>
+                                    <span class="fs-6">
+                                        <small>Olá, <?php echo $_SESSION['nome'] ?> :D </small> <br>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/tela-perfil">Meu perfil</a></li>
+                                    <li><a class="dropdown-item" href="/tela-compras">Compras</a></li>
+                                    <li><a class="dropdown-item " href="/logout">Sair</a></li>
+                                </ul>
+                            </li>
                         <?php else: ?>
                             <li class="nav-item dropdown">
                                 <a id="login-dropdown" class="nav-link dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle fs-3 me-2"></i>
                                     <span class="fs-6">
                                         <small>Bem-vindo :D</small> <br>
-                                        Entre ou Cadastre-se                                        
+                                        Entre ou Cadastre-se
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu">

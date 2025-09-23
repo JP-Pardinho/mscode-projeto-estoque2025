@@ -9,8 +9,6 @@ class LoginController extends AbstractController
 {
     public function index(array $requestData): void
     {
-        session_start();
-
         $model = new Usuario;
 
         $usuario = $model->findByEmail($requestData['email']);
@@ -24,6 +22,13 @@ class LoginController extends AbstractController
             $this->redirectToError('Usuário ou senha inválidos!');
         }
 
+        $usuario['nome'];
+        $nomeCompleto = explode(" ", $usuario['nome']);
+
+        $_SESSION['nome'] = $nomeCompleto[0];
+        $_SESSION['email'] = $usuario['email'];
+        // $_SESSION['cpf'] = $usuario['cpf'];
+        $_SESSION['senha'] = $usuario['senha'];
         $_SESSION['usuario_logado'] = 1;
 
         $this->redirect('/');

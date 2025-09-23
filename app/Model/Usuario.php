@@ -57,14 +57,15 @@ class Usuario
         return $this->query->select('usuario', null) ?: [];
     }
 
-   public function findByEmail(string $email): ?array
+    
+    public function findByEmail(string $email): ?array
     {
         $result = $this->query->select('usuario', "email = '{$email}'");
 
         if ($result && count($result) > 0) {
             return $result[0];
         }
-
+        
         return null;
     }    
 }
