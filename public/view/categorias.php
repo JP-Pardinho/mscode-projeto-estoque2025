@@ -1,11 +1,11 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/header.php'; ?>
 
-<?php 
+<?php
 
-session_start(); 
+session_start();
 
 
-if ($_SESSION['usuario_logado'] != 1){
+if ($_SESSION['usuario_logado'] != 1) {
 
     header('Location: /error?mensagem=Por favor, faça login para acessar essa página.');
     exit();
@@ -13,46 +13,47 @@ if ($_SESSION['usuario_logado'] != 1){
 
 ?>
 
-<div class="container py-5">
-    <div class="mb-4 d-flex flex-row justify-content-between">
-        <h1>Categorias</h1>
-        <div>
-            <a href="/nova-categoria" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
+<main>
+    <div class="container py-5">
+        <div class="mb-4 d-flex flex-row justify-content-between">
+            <h1>Categorias</h1>
+            <div>
+                <a href="/nova-categoria" class="btn btn-primary"><i class="bi bi-plus"></i>Nova categoria</a>
+            </div>
         </div>
-    </div>
 
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col-1 text-align-right">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($data['categorias'] as $categoria): ?>
+        <table class="table table-striped table-hover">
+            <thead>
                 <tr>
-                    <th scope="row"><?php echo $categoria['id']; ?></th>
-                    <td><?php echo $categoria['nome'] ?></td>
-                    <td class="col-1 text-align-right">
-                        <button type="button"
-                            class="btn btn-secondary btn-sm"
-                            title="Editar"
-                            onclick="editarCategoria(<?php echo $categoria['id']; ?>)">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-
-                        <button type="button"
-                            class="btn btn-danger btn-sm"
-                            title="Excluir"
-                            onclick="removerCategoria(<?php echo $categoria['id']; ?>)">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col-1 text-align-right">Ações</th>
                 </tr>
-            <?php endforeach; ?>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                <?php foreach ($data['categorias'] as $categoria): ?>
+                    <tr>
+                        <th scope="row"><?php echo $categoria['id']; ?></th>
+                        <td><?php echo $categoria['nome'] ?></td>
+                        <td class="col-1 text-align-right">
+                            <button type="button"
+                                class="btn btn-secondary btn-sm"
+                                title="Editar"
+                                onclick="editarCategoria(<?php echo $categoria['id']; ?>)">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+
+                            <button type="button"
+                                class="btn btn-danger btn-sm"
+                                title="Excluir"
+                                onclick="removerCategoria(<?php echo $categoria['id']; ?>)">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+        </table>
+    </div>
 </main>
 
 <script>

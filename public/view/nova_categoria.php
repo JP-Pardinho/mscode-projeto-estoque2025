@@ -1,37 +1,37 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/header.php'; ?>
 
-<?php 
+<?php
 
-session_start(); 
+session_start();
 
 
-if ($_SESSION['usuario_logado'] != 1){
+if ($_SESSION['usuario_logado'] != 1) {
 
     header('Location: /error?mensagem=Por favor, faça login para acessar essa página.');
     exit();
 }
 
 ?>
-
+<main>
     <div class="container py-5">
-      <div class="mb-4">
-        <h1>Nova categoria</h1>
-      </div>
+        <div class="mb-4">
+            <h1>Nova categoria</h1>
+        </div>
 
-      <div class="w-50 mt-2">
-        <form action="/categoria/salvarCategoria" method="POST">
-          <div class="mb-3">
-            <label for="id" class="form-label">Id</label>
-            <input type="email" class="form-control" id="id" disabled value="-">
-          </div>
-          <div class="mb-3">
-            <label for="nome" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome">
-          </div>
-          <button type="submit" class="btn btn-primary">Salvar</button>
-        </form>
-      </div>
+        <div class="w-50 mt-2">
+            <form action="/categoria/salvarCategoria" method="POST">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="email" class="form-control" id="id" disabled value="-">
+                </div>
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
     </div>
-  </main>
+</main>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/footer.php'; ?>

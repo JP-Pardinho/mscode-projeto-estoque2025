@@ -1,47 +1,43 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/header.php'; ?>
 
-<div class="container py-5">
-    <div class="mb-4">
-        <h1>Novo usuário</h1>
+<main>
+    <div class="container py-5">
+        <div class="mb-4">
+            <h1>Novo usuário</h1>
+        </div>
+
+        <div class="w-50 mt-2">
+            <form action="/usuario/salvarUsuario" method="POST">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome Completo:</label>
+                    <input type="text" class="form-control" id="nome" name="nome" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha:</label>
+                    <input type="password" class="form-control" id="senha" name="senha" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmacao" class="form-label">Confirme sua senha:</label>
+                    <input type="password" class="form-control" id="confirmacao" name="confirmacao" required>
+                </div>
+
+                <div id="mensagemErro" class="mb-3 text-danger"></div>
+
+                <button id="btnSalvar" type="submit" class="btn btn-primary" disabled>Salvar</button>
+                
+            </form>
+        </div>
     </div>
-
-    <div class="w-50 mt-2">
-        <form action="/usuario/salvarUsuario" method="POST">
-            <div class="mb-3">
-                <label for="nome" class="form-label">Nome Completo:</label>
-                <input type="text" class="form-control" id="nome" name="nome" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="cpf" class="form-label">CPF:</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="email" class="form-label">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="senha" class="form-label">Senha:</label>
-                <input type="password" class="form-control" id="senha" name="senha" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="confirmacao" class="form-label">Confirme sua senha:</label>
-                <input type="password" class="form-control" id="confirmacao" name="confirmacao" required>
-            </div>
-
-            <div id="mensagemErro" class="mb-3 text-danger"></div>
-
-            <button id="btnSalvar" type="submit" class="btn btn-primary" disabled>Salvar</button>
-        </form>
-    </div>
-</div>
 </main>
 
-<!-- <script>
-
+<script>
     const senhaInput = document.getElementById('senha');
     const confirmacaoInput = document.getElementById('confirmacao');
     const btnSalvar = document.getElementById('btnSalvar');
@@ -66,6 +62,6 @@
 
     senhaInput.addEventListener('keyup', validarSenhas);
     confirmacaoInput.addEventListener('keyup', validarSenhas);
-</script> -->
+</script>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/footer.php'; ?>

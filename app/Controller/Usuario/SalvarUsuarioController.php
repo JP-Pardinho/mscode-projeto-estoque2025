@@ -5,8 +5,6 @@ namespace App\Controller\Usuario;
 use App\Controller\AbstractController;
 use App\Model\Usuario;
 
-// ADICIONAR O CAMPO CPF NO BANCO DE DADOS
-
 class SalvarUsuarioController extends AbstractController
 {
     public function index(array $requestData): void

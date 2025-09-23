@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <main>
+    <header>
         <div class="border-bottom mb-2">
             <div class="container">
-                <header class="d-flex flex-wrap justify-content-center align-items-center py-3">
+                <div class="d-flex flex-wrap justify-content-center align-items-center py-3">
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                         <img class="me-2" src="../assets/images/logotipo.svg" width="53">
                         <span class="fs-4">MS Code - Estoque</span>
@@ -72,6 +72,7 @@
                             </li>
                         <?php endif; ?>
                     </ul>
-                </header>
+                </div>
             </div>
         </div>
+    </header>

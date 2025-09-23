@@ -20,6 +20,8 @@ use App\Controller\Categoria\EditarCategoriaController as EditarCategoria;
 
 // CRUD USUARIOS
 use App\Controller\Usuario\SalvarUsuarioController as SalvarUsuario;
+use App\Controller\Usuario\RemoverUsuarioController as RemoverUsuario;
+use App\Controller\Usuario\EditarUsuarioController as EditarUsuario;
 
 // Login e Logout
 use App\Controller\LoginController as Login;
@@ -56,6 +58,8 @@ $router = [
         '/produto/venderProduto' => VenderProduto::class,
         
         '/usuario/salvarUsuario' => SalvarUsuario::class,
+        '/usuario/removerUsuario' => RemoverUsuario::class,
+        '/usuario/editarUsuario' => EditarUsuario::class,    
         
         '/login' => Login::class,
         '/logout' => Logout::class,

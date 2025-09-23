@@ -15,9 +15,11 @@ class RemoverUsuarioController extends AbstractController
 
         $usuarioModel = new Usuario();
         $success = $usuarioModel->delete((int)$requestData['id']);
+        session_destroy();
+        
 
         if ($success) {
-            $this->redirect('/tela-perfil');
+            $this->redirect('/');
         } else {
             $this->redirectToError("Erro não foi possivel remover seu usuario");
         }
