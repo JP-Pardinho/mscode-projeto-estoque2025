@@ -50,6 +50,12 @@
         if (senha !== confirmacao && confirmacao !== '') {
             mensagemErro.textContent = 'As senhas precisam ser iguais!';
             btnSalvar.disabled = true;
+
+            if (senhaInput.value.length > 0 && senhaInput.value.length < 7) {
+                event.preventDefault();
+                mensagemErro.textContent = 'A senha deve ter pelo menos 6 caracteres.';
+                btnSalvar.disabled = true;
+            }
         } else {
             mensagemErro.textContent = '';
             if (senha && confirmacao && senha === confirmacao) {

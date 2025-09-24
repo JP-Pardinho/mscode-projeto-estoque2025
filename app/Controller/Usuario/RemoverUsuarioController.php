@@ -9,6 +9,11 @@ class RemoverUsuarioController extends AbstractController
 {
     public function index(array $requestData): void
     {
+
+        if ($_SESSION['usuario_logado'] != 1) {
+            $this->redirectToError("Você precisa estar logado para realizar essa ação!");
+        }
+
         if (!isset($requestData['id'])) {
             $this->redirectToError("ID não informado");
         }
@@ -16,7 +21,7 @@ class RemoverUsuarioController extends AbstractController
         $usuarioModel = new Usuario();
         $success = $usuarioModel->delete((int)$requestData['id']);
         session_destroy();
-        
+
 
         if ($success) {
             $this->redirect('/');

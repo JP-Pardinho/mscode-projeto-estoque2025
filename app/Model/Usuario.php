@@ -40,11 +40,7 @@ class Usuario
     {   
         $senhaHash = password_hash($data['senha'], PASSWORD_DEFAULT);
 
-        return $this->query->update('usuario', [
-            'nome' => $data['nome'],
-            'email' => $data['email'],
-            'senha' => $senhaHash
-        ], 'id = ' . $id);
+        return $this->query->update('usuario', $data, 'id = ' . $id);
     }
 
     public function delete(int $id): bool

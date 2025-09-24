@@ -22,8 +22,8 @@ if ($_SESSION['usuario_logado'] != 1) {
                     <div class="d-flex">
                         <input disabled type="text" class="form-control" id="nome" name="nome" value="<?php echo $_SESSION['nomeCompleto']; ?>">
                         <button type="button"
-                                id="btnEditarNome"
-                                class="btn - btn-outline-secondary">
+                            id="btnEditarNome"
+                            class="btn - btn-outline-secondary">
                             <i class="bi bi-pencil"></i>
                         </button>
                     </div>
@@ -34,30 +34,29 @@ if ($_SESSION['usuario_logado'] != 1) {
                     <div class="d-flex">
                         <input disabled type="email" class="form-control" id="email" name="email" value="<?php echo $_SESSION['email']; ?>">
                         <button type="button"
-                                id="btnEditarEmail"
-                                class="btn - btn-outline-secondary">
+                            id="btnEditarEmail"
+                            class="btn - btn-outline-secondary">
                             <i class="bi bi-pencil"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="senha" class="form-label">Alterar senha:</label>
-                    <div class="d-flex">
-                        <button type="button"
-                                id="btnEditarSenha"
-                                class="btn - btn-outline-secondary">
-                            <i class="bi bi-pencil"></i>
-                        </button>
+                    <label for="senha" class="form-label">Alterar senha: </label>
 
-                        <div class="d-none" id="inputSenhas">
-                            <label for="senhaAtual">Senha atual</label>
-                            <input type="password" name="senhaAtual" id="senhaAtual">
-                            <label for="senhaAtual">Nova senha:</label>
-                            <input type="password" name="novaSenha" id="novaSenha">
-                            <label for="senhaAtual">Confirmar senha</label>
-                            <input type="password" name="confirmarSenha" id="confirmarSenha">
-                        </div>
+                    <button type="button"
+                        id="btnEditarSenha"
+                        class="mx-2 btn btn-outline-secondary">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+
+                    <div class="d-none" id="inputSenhas">
+                        <label class="form-label" for="senhaAtual">Senha atual</label>
+                        <input class="form-control" type="password" name="senhaAtual" id="senhaAtual">
+                        <label class="form-label" for="senhaAtual">Nova senha:</label>
+                        <input class="form-control" type="password" name="novaSenha" id="novaSenha">
+                        <label class="form-label" for="senhaAtual">Confirmar senha</label>
+                        <input class="form-control" type="password" name="confirmarSenha" id="confirmarSenha">
                     </div>
                 </div>
 
@@ -68,8 +67,8 @@ if ($_SESSION['usuario_logado'] != 1) {
                         Salvar edição
                     </button>
                     <button type="button"
-                            class="btn btn-danger"
-                            onclick="removerUsuario(<?php echo $_SESSION['id'] ?>)">
+                        class="btn btn-danger"
+                        onclick="removerUsuario(<?php echo $_SESSION['id'] ?>)">
                         Excluir conta
                     </button>
 
@@ -79,59 +78,73 @@ if ($_SESSION['usuario_logado'] != 1) {
     </div>
 </main>
 
-
 <script>
-    document.addEventListener('DOMContentLoaded', function(){
-
-        const nomeInput = document.getElementById('nome');
-        const emailInput = document.getElementById('email');
-        const senhaInput = document.getElementById('senha');
-        const btnSalvar = document.getElementById('btnSalvar');
-        const confirmarSenha = document.getElementById('confirmarSenha');
-
-        const btnEditarNome = document.getElementById('btnEditarNome');
-        const btnEditarEmail = document.getElementById('btnEditarEmail');
-        const btnEditarSenha = document.getElementById('btnEditarSenha');
-
-    function editarNome() {
-        nomeInput.disabled = false;
-    }
-
-    function editarEmail() {
-        emailInput.disabled = false;
-    }
-
-    function editarSenha() {
-        confirmarSenha.textContent = '<input '
-        senhaInput.disabled = false;
-    }
-
-    function salvarEdicao() {
-        nomeInput.disabled = false;
-        emailInput.disabled = false;
-        senhaInput.disabled = false;
-    }
-
-    if (btnEditarNome) {
-        btnEditarNome.addEventListener('click', editarNome);
-        btnSalvar.disabled = false;
-    }
-
-    if (btnEditarEmail) {
-        btnEditarEmail.addEventListener('click', editarEmail);
-        btnSalvar.disabled = false;
-    }
-
-    if(btnSalvar) {
-        btnSalvar.addEventListener('click', salvarEdicao);
-    }
-    });
-
     function removerUsuario(usuarioId) {
         if (confirm('Tem certeza que deseja excluir sua conta?')) {
             window.location.href = `/usuario/removerUsuario?id=${usuarioId}`;
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        const nomeInput = document.getElementById('nome');
+        const emailInput = document.getElementById('email');
+        const btnSalvar = document.getElementById('btnSalvar');
+        const mensagemErro = document.getElementById('mensagemErro');
+
+        const btnEditarNome = document.getElementById('btnEditarNome');
+        const btnEditarEmail = document.getElementById('btnEditarEmail');
+        const btnEditarSenha = document.getElementById('btnEditarSenha');
+
+        const inputSenhasDiv = document.getElementById('inputSenhas');
+        const novaSenhaInput = document.getElementById('novaSenha');
+        const confirmarSenhaInput = document.getElementById('confirmarSenha');
+
+
+        function habilitarCampo(inputElement) {
+            inputElement.disabled = false;
+            btnSalvar.disabled = false;
+            inputElement.focus();
+        }
+
+        function mostrarCamposSenha() {
+            inputSenhasDiv.classList.remove('d-none');
+            btnSalvar.disabled = false;
+        }
+
+        if (btnEditarNome) {
+            btnEditarNome.addEventListener('click', () => habilitarCampo(nomeInput));
+        }
+
+        if (btnEditarEmail) {
+            btnEditarEmail.addEventListener('click', () => habilitarCampo(emailInput));
+        }
+
+        if (btnEditarSenha) {
+            btnEditarSenha.addEventListener('click', mostrarCamposSenha);
+        }
+
+        form.addEventListener('submit', function(event) {
+            mensagemErro.textContent = '';
+            
+            if (!inputSenhasDiv.classList.contains('d-none')) {
+                if (novaSenhaInput.value.length > 0 && novaSenhaInput.value !== confirmarSenhaInput.value) {
+                    event.preventDefault();
+                    mensagemErro.textContent = 'A nova senha e a confirmação não conferem.';
+                    return; 
+                }
+
+                if (novaSenhaInput.value.length > 0 && novaSenhaInput.value.length < 6) {
+                    event.preventDefault();
+                    mensagemErro.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
+                    return; 
+                }
+            }
+
+            nomeInput.disabled = false;
+            emailInput.disabled = false;
+        });
+    });
 </script>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/view/includes/footer.php'; ?>
