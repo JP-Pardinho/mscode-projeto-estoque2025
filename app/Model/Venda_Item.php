@@ -4,7 +4,7 @@ namespace App\Model;
 
 use App\Database\Query;
 
-class Venda
+class Venda_Item
 {
     private Query $query;
 
@@ -15,7 +15,7 @@ class Venda
 
     public function findById(int $id): ?array
     {
-        $result = $this->query->select('venda_item', 'id = ' . $id); 
+        $result = $this->query->select('venda_item', 'id = ' . $id);
 
         if ($result && count($result) > 0) {
             return $result[0];
@@ -30,7 +30,7 @@ class Venda
             'venda_id' => $data['venda_id'],
             'produto_id' => $data['produto_id'],
             'quantidade' => $data['quantidade'],
-            'prece_unitario' => $data['prece_unitario']
+            'preco_unitario' => $data['preco_unitario']
         ]);
     }
 
@@ -44,7 +44,7 @@ class Venda
         ], 'id = ' . $id);
     }
 
-        public function delete(int $id): bool
+    public function delete(int $id): bool
     {
         return $this->query->delete('venda_item', 'id = ' . $id);
     }
@@ -52,5 +52,10 @@ class Venda
     public function findAll(): array
     {
         return $this->query->select('venda_item', null) ?: [];
+    }
+
+    public function findItemsByVendaId(int $vendaId): array
+    {
+        return $this->query->select('venda_item', 'venda_id = ' . (int)$vendaId) ?: [];
     }
 }

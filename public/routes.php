@@ -23,25 +23,30 @@ use App\Controller\Usuario\SalvarUsuarioController as SalvarUsuario;
 use App\Controller\Usuario\RemoverUsuarioController as RemoverUsuario;
 use App\Controller\Usuario\EditarUsuarioController as EditarUsuario;
 
+// CRUD VENDAS
+use App\Controller\Venda\SalvarVendaController as SalvarVenda;
+use App\Controller\Venda\EditarVendaController as EditarVenda;
+
 // Login e Logout
 use App\Controller\LoginController as Login;
 use App\Controller\LogoutController as Logout;
 
-// TELAS: CATEGORIAS
+//  PAINEL
 use App\Controller\Painel\CategoriasController as Categorias;
 use App\Controller\Painel\NovaCategoriaController as NovaCategoria;
 use App\Controller\Painel\TelaEditarCategoriaController as TelaEditarCategoria;
-
-// TELAS: PRODUTOS
+// TELAS DOS PRODUTOS
 use App\Controller\Painel\ProdutosController as Produto;
 use App\Controller\Painel\NovoProdutoController as NovoProduto;
 use App\Controller\Painel\TelaEditarProdutoController as TelaEditarProduto;
-
-
-// TELAS: USUARIO
+// TELAS DOS USUARIOS
 use App\Controller\Painel\TelaLoginController as TelaLogin;
 use App\Controller\Painel\NovoUsuarioController as TelaCadastro;
 use App\Controller\Painel\PerfilUsuarioController as TelaPerfil;
+// TELAS DAS VENDAS
+use App\Controller\Painel\NovaVendaController as NovaVenda;
+use App\Controller\Painel\FinalizarVendaController as FinalizarVenda;
+use App\Controller\Painel\VendasController as Vendas;
 
 $router = [
     'routes' => [
@@ -61,6 +66,9 @@ $router = [
         '/usuario/removerUsuario' => RemoverUsuario::class,
         '/usuario/editarUsuario' => EditarUsuario::class,    
         
+        '/venda/salvarVenda' => SalvarVenda::class,
+        '/venda/editarVenda' => EditarVenda::class,
+
         '/login' => Login::class,
         '/logout' => Logout::class,
         
@@ -73,6 +81,9 @@ $router = [
         '/tela-categorias' => Categorias::class,
         '/tela-editar-categoria' => TelaEditarCategoria::class,
         '/tela-editar-produto' => TelaEditarProduto::class,
+        '/nova-venda' => NovaVenda::class,
+        '/finalizar-venda' => FinalizarVenda::class,
+        '/vendas-realizadas' => Vendas::class,
 
         '/error' => ErrorController::class,
     ],

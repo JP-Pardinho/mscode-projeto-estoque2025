@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Painel; 
 
+use App\Controller\AbstractController;
 use App\Model\Categoria;
 use App\Model\Produto;
 
-class AppController extends AbstractController
+class NovaVendaController extends AbstractController 
 {
     public function index(array $requestData): void
     {
         $produtoModel = new Produto();
-        $produtos = $produtoModel->findAll(); 
+        $produtos = $produtoModel->findAll();
 
         $categoriaModel = new Categoria();
         $categorias = $categoriaModel->findAll();
@@ -19,6 +20,6 @@ class AppController extends AbstractController
             $produtos[$chave]['categoria_nome'] = $categoriaModel->findNamebyId($produto['categoria_id']);
         }
 
-        $this->render('index.php', ['produtos' => $produtos, 'categorias' => $categorias]);
+        $this->render('nova_venda.php', ['produtos' => $produtos, 'categorias' => $categorias]);
     }
 }

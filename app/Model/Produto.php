@@ -33,12 +33,13 @@ class Produto
             'data_cadastro' => $data['data_cadastro'],
             'quantidade_inicial' => $data['quantidade_inicial'],
             'quantidade_disponivel' => $data['quantidade_disponivel'],
-            'valor' => $data['valor']
+            'valor' => $data['valor'],
+            'url' => $data['url']
         ]);
     }
 
     public function update(int $id, array $data): bool
-    {   
+    {
         return $this->query->update('produto', [
             'nome' => $data['nome'],
             'descricao' => $data['descricao'] ?? '',
@@ -46,7 +47,8 @@ class Produto
             'data_cadastro' => $data['data_cadastro'],
             'quantidade_inicial' => $data['quantidade_inicial'],
             'quantidade_disponivel' => $data['quantidade_disponivel'],
-            'valor' => $data['valor']
+            'valor' => $data['valor'],
+            'url' => $data['url']
         ], 'id = ' . $id);
     }
 
@@ -58,5 +60,20 @@ class Produto
     public function findAll(): array
     {
         return $this->query->select('produto', null) ?: [];
+    }
+
+    public function findByIds(array $ids): array
+    {
+        if (empty($ids)) {
+            return [];
+        }
+
+        $verificaIds = array_map('intval', $ids);
+
+        $idList = implode(',', $verificaIds);
+
+        $condicao = 'id IN (' . $idList . ')';
+
+        return $this->query->select('produto', $condicao) ?: [];
     }
 }

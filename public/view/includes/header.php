@@ -1,17 +1,3 @@
-<!doctype html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MS Code - Projeto Estoque 2025</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="../assets/css/styles.css" rel="stylesheet">
-</head>
-
 <body>
     <header>
         <div class="border-bottom mb-2">
@@ -42,9 +28,10 @@
                                 <li><a class="dropdown-item" href="/tela-categorias">Categorias</a></li>
                             </ul>
                         </li>
+
                         <?php if (isset($_SESSION['usuario_logado'])): ?>
                             <li class="nav-item dropdown">
-                                <a id="login-dropdown" class="nav-link dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a id="seta-dropdown" class="nav-link dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle fs-3 me-2"></i>
                                     <span class="fs-6">
                                         <small>Olá, <?php echo $_SESSION['nome'] ?> :D </small> <br>
@@ -52,13 +39,12 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/tela-perfil">Meu perfil</a></li>
-                                    <li><a class="dropdown-item" href="/tela-compras">Compras</a></li>
                                     <li><a class="dropdown-item " href="/logout">Sair</a></li>
                                 </ul>
                             </li>
                         <?php else: ?>
                             <li class="nav-item dropdown">
-                                <a id="login-dropdown" class="nav-link dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a id="seta-dropdown" class="nav-link dropdown-toggle d-flex align-items-center text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle fs-3 me-2"></i>
                                     <span class="fs-6">
                                         <small>Bem-vindo :D</small> <br>

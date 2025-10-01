@@ -1,6 +1,36 @@
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
-</body>
+     <footer class="bg-success text-white py-4 mt-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12 mb-3">
+                    <h2>Redes sociais</h2>
+                    <ul class="list-inline d-flex justify-content-center gap-4">
+                        <li class="list-inline-item">
+                            <a class="text-white text-decoration-none" href="https://github.com/JP-Pardinho" target="_blank">
+                                <i class="bi bi-github fs-4"></i>
+                                <span class="d-none d-sm-inline">GitHub</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-white text-decoration-none" href="https://www.instagram.com/jp.pardinho/" target="_blank">
+                                <i class="bi bi-instagram fs-4"></i>
+                                <span class="d-none d-sm-inline">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="text-white text-decoration-none" href="https://www.linkedin.com/in/jppardinho/" target="_blank">
+                                <i class="bi bi-linkedin fs-4"></i>
+                                <span class="d-none d-sm-inline">LinkedIn</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-</html>
+                <div class="col-12">
+                    <p>Site criado por <a href="https://github.com/JP-Pardinho" target="_blank"
+                            class="text-white">JP-Pardinho</a> para o curso MS-Code.</p>
+                    <p>©2025 Projeto Estoque. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 

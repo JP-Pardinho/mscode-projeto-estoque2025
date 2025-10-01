@@ -24,7 +24,8 @@ class IncrementarProdutoController extends AbstractController
             'data_cadastro' => date(DATE_ATOM),
             'quantidade_inicial' => $success['quantidade_inicial'],
             'quantidade_disponivel' => $quantidade,
-            'valor' => $success['valor']
+            'valor' => $success['valor'],
+            'url' => $success['url']
         ];
 
         $success = $produtoModel->update((int) $requestData['id'], $data);

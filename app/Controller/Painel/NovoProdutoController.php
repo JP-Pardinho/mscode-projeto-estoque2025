@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller\Painel;
+
 use App\Controller\AbstractController;
 use App\Model\Categoria;
 

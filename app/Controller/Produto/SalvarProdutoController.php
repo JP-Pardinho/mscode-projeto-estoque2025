@@ -25,7 +25,8 @@ class SalvarProdutoController extends AbstractController
             'data_cadastro' => date(DATE_ATOM),
             'quantidade_inicial' => trim($requestData['quantidade']),
             'quantidade_disponivel' => trim($requestData['quantidade']),
-            'valor' => trim($requestData['valor'])
+            'valor' => trim($requestData['valor']),
+            'url' => trim($requestData['url'])
         ];
 
         $produtoModel = new Produto();

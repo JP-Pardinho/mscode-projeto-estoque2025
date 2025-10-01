@@ -35,11 +35,7 @@ class Venda
 
     public function update(int $id, array $data)
     {
-        return $this->query->update('venda', [
-            'data_venda' => $data['data_venda'],
-            'cpf_cliente' => $data['cpf_cliente'],
-            'status' => $data['status']
-        ], 'id = ' . $id);
+        return $this->query->update('venda', $data, 'id = ' . $id);
     }
 
         public function delete(int $id): bool

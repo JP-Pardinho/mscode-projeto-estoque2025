@@ -14,6 +14,7 @@ CREATE TABLE produto (
   quantidade_inicial INT,
   quantidade_disponivel INT,
   valor INT,
+  url VARCHAR,
   FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
