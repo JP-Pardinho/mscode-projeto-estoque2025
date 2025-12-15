@@ -42,8 +42,8 @@ if ($_SESSION['usuario_logado'] != 1) {
                 <div class="mb-3">
                     <label for="descricao" class="form-label">Descrição:</label>
                     <textarea class="form-control" id="descricao" name="descricao" style="resize:none;" rows="5">
-                    <?php echo $data['produto']['descricao'] ?>
-                </textarea>
+                        <?php echo $data['produto']['descricao'] ?>
+                    </textarea>
                 </div>
 
                 <div class="row">

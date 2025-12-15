@@ -56,6 +56,7 @@ if ($_SESSION['usuario_logado'] != 1) {
                             </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>
+
                 </tbody>
             </table>
         </div>
